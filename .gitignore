@@ -33,4 +33,7 @@ $RECYCLE.BIN/
 Thumbs.db
 UserInterfaceState.xcuserstate
 
+*.jpg
+*.png
+*.git
 素材/

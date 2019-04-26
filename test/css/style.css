@@ -1,18 +1,33 @@
-html,body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: 'Sawarabi Gothic', sans-serif;
+  font-family: "Sawarabi Gothic", sans-serif;
 }
 
-html.fixed,body.fixed {
+html.fixed,
+body.fixed {
   overflow: hidden;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
 }
 
-img,iframe {
+body {
+  line-height: 1.7;
+}
+body:not(.index) {
+  padding-top: 50px;
+}
+img,
+iframe,
+input {
   max-width: 100%;
 }
-
+.inline-block {
+  display: inline-block;
+}
 .overray {
   position: fixed;
   top: 0;
@@ -22,18 +37,18 @@ img,iframe {
   width: 100%;
   height: 100%;
   background: black;
-  opacity: .9;
-  transition: .5s ease-out;
+  opacity: 0.9;
+  transition: 0.5s ease-out;
 }
 .overray.fade {
   position: absolute;
-  opacity: .2;
+  opacity: 0.2;
 }
-header {
+.index header {
   position: relative;
   height: 100%;
   width: 100%;
-  transition: .5s ease-out;
+  transition: 0.5s ease-out;
 }
 header.index {
   margin-top: -100px;
@@ -50,12 +65,16 @@ header.index {
   align-items: center;
   justify-content: center;
   opacity: 0;
-  animation: fadeIn .5s ease-out;
+  animation: fadeIn 0.5s ease-out;
   animation-fill-mode: forwards;
 }
 @keyframes fadeIn {
-  from {opacity: 0}
-  to {opacity: 1}
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .keyvisual {
   position: relative;
@@ -77,16 +96,21 @@ header.index {
   transform: scale(1.03) translateX(-1%);
   transition: 3.5s linear;
 }
-.slick-current .slide-item{
+.slick-current .slide-item {
   transform: scale(1.03) translateX(0);
 }
 @media (max-width: 780px) {
-  .slide-item{
-    transform: scale(1.03) translateX(-3%); 
+  .slide-item {
+    transform: scale(1.03) translateX(-3%);
   }
 }
-.container {
-  background: white;
+main {
+  overflow: hidden;
+}
+.section {
+  margin-bottom: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 .scroll-down {
   margin-top: 50px;
@@ -97,60 +121,74 @@ header.index {
   text-align: center;
   font-family: "Font Awesome 5 Free";
   font-weight: bold;
-  content: '\f103';
+  content: "\f103";
   transform: translate(0);
   animation: arrows 2s infinite;
 }
 @keyframes arrows {
-  0% {transform: translateY(0)}
-  10% {transform: translateY(50%)}
-  20% {transform: translateY(0)}
-  30% {transform: translateY(50%)}
-  40% {transform: translateY(0)}
-  100% {transform: translateY(0)}
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(50%);
+  }
+  20% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(50%);
+  }
+  40% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
-
-
 
 h1 {
   font-size: 2rem;
-  color: #E2007E;
+  color: #e2007e;
+}
+.jumbotron h1 {
+  color: white;
 }
 h1:first-letter {
-  color: #FFEF01;
+  color: #ffef01;
   font-size: 3rem;
 }
 h2 {
   position: relative;
+  margin-bottom: 4rem;
   text-align: center;
 }
 h2::before {
   display: inline-block;
-  content: '';
+  content: "";
   height: 1.5em;
   width: 1.5em;
-  margin-right: .5em;
+  margin-right: 0.5em;
   background: url(../img/tokkuri.png) center center/contain no-repeat;
 }
 h2.delighter::before {
-  transition: .5s ease-out;
+  transition: 0.5s ease-out;
   transform: translateY(-1em);
   opacity: 0;
 }
 h2.delighter.started::before {
-  transform: rotate(-20deg) translateY(.3em);
+  transform: rotate(-20deg) translateY(0.3em);
   opacity: 1;
 }
 h2::after {
   display: block;
-  content: '';
+  content: "";
   height: 3px;
   width: 3em;
   margin: 5px auto;
-  background: #E2007E; 
+  background: #e2007e;
 }
 h2.delighter::after {
-  transition: .5s ease-out;
+  transition: 0.5s ease-out;
   transform: scaleX(0);
   opacity: 0;
 }
@@ -158,19 +196,806 @@ h2.delighter.started::after {
   transform: scaleX(1);
   opacity: 1;
 }
+h3 {
+  margin: 3rem auto 1rem;
+}
+h4 {
+  margin: 1.5rem auto 0.5rem;
+}
+
+.tickets.jumbotron {
+  background: url(../img/tickets-cover.jpg) center center/cover no-repeat;
+}
+.tickets-store.jumbotron {
+  background: url(../img/tickets-store-cover.jpg) center center/cover no-repeat;
+}
+.premium-seat.jumbotron {
+  background: url(../img/premium-seat.jpg) center center/cover no-repeat;
+}
+.ticket-info {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 600px;
+  margin: 1rem auto 0;
+  font-size: 1.2rem;
+}
+.ticket-info dt {
+  width: 30%;
+  padding-right: 1rem;
+  text-align: right;
+}
+.ticket-info dd {
+  width: 70%;
+  text-align: left;
+}
+.section_fullwidth {
+  margin-left: -100%;
+  margin-right: -100%;
+  padding-left: 100%;
+  padding-right: 100%;
+}
+.section_store-list {
+  background: #e9e9e9;
+}
+.store-list {
+  padding-left: 0;
+  list-style: none;
+  line-height: 1.8;
+}
+.store-list li {
+  margin-bottom: 1rem;
+  list-style: none;
+}
+.index_sakazukin-bg {
+  position: relative;
+  z-index: 1;
+}
+.index_sakazukin-bg::after {
+  position: absolute;
+  display: block;
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: .4;
+  z-index: -1;
+}
+@media (max-width: 992px) {
+  .index_sakazukin-bg::after {
+    opacity: .1;
+  }
+}
+@media (max-width: 480px) {
+  .index_sakazukin-bg::after {
+    opacity: 0;
+  }
+}
+.bg1.index_sakazukin-bg::after {
+  background: url(../img/sakazukin_kobe.png) left center no-repeat,
+  url(../img/sakazukin_osaka.png) right center no-repeat;
+}
+.bg2.index_sakazukin-bg::after {
+  background: url(../img/sakazukin_himeji.png) left center no-repeat,
+  url(../img/sakazukin_hiroshima.png) right center no-repeat;
+}
+.bg3.index_sakazukin-bg::after {
+  background: url(../img/sakazukin_fukuoka.png) left center no-repeat,
+  url(../img/sakazukin_sapporo.png) right center no-repeat;
+}
+.bg4.index_sakazukin-bg::after {
+  background: url(../img/sakazukin_kyoto.png) left center no-repeat,
+  url(../img/sakazukin_nagoya.png) right center no-repeat;
+}
+.index_howto-list {
+  list-style: none;
+  display: inline-block;
+  max-width: 600px;
+  padding-left: 40px;
+  text-align: left;
+  background-image: linear-gradient(rgb(212, 20, 110), rgb(212, 20, 110));
+  background-size: 10px;
+  background-repeat: repeat-y;
+}
+
+.index_howto-list dt {
+  position: relative;
+  margin-bottom: 0.5rem;
+  counter-increment: howto;
+}
+.index_howto-list dt:not(:first-child) {
+  margin-top: 2rem;
+}
+.index_howto-list dt::before {
+  position: absolute;
+  display: inline-block;
+  content: counter(howto);
+  top: -1rem;
+  left: -60px;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: #e2007e;
+  font-size: 2rem;
+  line-height: 1.5;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+.index_howto-list dd::before {
+  display: inline-block;
+  content: "";
+  margin-right: 5px;
+  width: 2rem;
+  height: 2rem;
+  background: url(../img/sakazukin.png) center bottom/contain no-repeat;
+}
+.index_howto-list dd:nth-of-type(1)::before {
+  background: url(../img/sakazukin1.png) center bottom/contain no-repeat;
+}
+.index_howto-list dd:nth-of-type(2)::before {
+  background: url(../img/sakazukin2.png) center bottom/contain no-repeat;
+}
+.index_howto-list dd:nth-of-type(3)::before {
+  background: url(../img/sakazukin3.png) center bottom/contain no-repeat;
+}
+.index_howto-list dd:nth-of-type(4)::before {
+  background: url(../img/sakazukin4.png) center bottom/contain no-repeat;
+}
+.index_howto-list dd:nth-of-type(5)::before {
+  background: url(../img/sakazukin5.png) center bottom/contain no-repeat;
+}
+.index_howto-list dd:nth-of-type(6)::before {
+  background: url(../img/sakazukin6.png) center bottom/contain no-repeat;
+}
+.index_howto-list dd:nth-of-type(7)::before {
+  background: url(../img/sakazukin7.png) center bottom/contain no-repeat;
+}
+.index_howto-list dd:nth-of-type(8)::before {
+  background: url(../img/sakazukin8.png) center bottom/contain no-repeat;
+}
+.index_howto-list dd:nth-of-type(9)::before {
+  background: url(../img/sakazukin9.png) center bottom/contain no-repeat;
+}
+.index_howto-list dd:nth-of-type(10)::before {
+  background: url(../img/sakazukin10.png) center bottom/contain no-repeat;
+}
+.index_howto-list dd:nth-of-type(11)::before {
+  background: url(../img/sakazukin11.png) center bottom/contain no-repeat;
+}
+.index_howto-list dd:nth-of-type(12)::before {
+  background: url(../img/sakazukin12.png) center bottom/contain no-repeat;
+}
+.index_howto-list dd:nth-of-type(13)::before {
+  background: url(../img/sakazukin13.png) center bottom/contain no-repeat;
+}
+.index_howto-list dd:nth-of-type(14)::before {
+  background: url(../img/sakazukin14.png) center bottom/contain no-repeat;
+}
+.index_howto-list dd:nth-of-type(15)::before {
+  background: url(../img/sakazukin15.png) center bottom/contain no-repeat;
+}
+.index_howto-list dd:nth-of-type(16)::before {
+  background: url(../img/sakazukin16.png) center bottom/contain no-repeat;
+}
+.index_howto-list dd:nth-of-type(17)::before {
+  background: url(../img/sakazukin17.png) center bottom/contain no-repeat;
+}
+.index_howto-list dd:nth-of-type(18)::before {
+  background: url(../img/sakazukin18.png) center bottom/contain no-repeat;
+}
+.latest-news {
+  max-width: 600px;
+  height: 9rem;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto 0.5rem;
+  overflow-y: scroll;
+}
+.latest-news dt,
+.latest-news dd {
+  margin: 0;
+  padding: 0.5rem;
+  border-bottom: 1px dotted #333;
+}
+.latest-news dt {
+  width: 25%;
+}
+.latest-news dd {
+  width: 75%;
+  text-align: left;
+}
+@media (max-width: 480px) {
+  .latest-news {
+    display: block;
+  }
+  .latest-news dt,
+  .latest-news dd {
+    width: 100%;
+  }
+  .latest-news dt {
+    padding-bottom: 0;
+    border-bottom: 0;
+    text-align: left;
+  }
+  .latest-news dd {
+    padding-top: 0;
+  }
+}
+#latest-news_check {
+  display: none;
+}
+#latest-news_check:checked + .latest-news {
+  height: auto;
+}
+.lastes-news_btn {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.lastes-news_btn:hover::before,
+.lastes-news_btn:hover::after {
+  text-decoration: underline;
+}
+.lastes-news_btn::before,
+.lastes-news_btn::after {
+  position: relative;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  transition: transform 0.25s;
+}
+.lastes-news_btn::before {
+  content: "更新履歴を全て見る";
+  transform-origin: left center;
+}
+.lastes-news_btn::after {
+  position: absolute;
+  content: "閉じる";
+  transform: scale(0, 1);
+  transform-origin: right center;
+}
+.lastes-news_btn-en::before {
+    content: "See all latest updates";
+}
+.lastes-news_btn-en::after {
+  content: "Close";
+}
+#latest-news_check:checked ~ .latest-news_p .lastes-news_btn::before {
+  transform: scale(0, 1);
+}
+#latest-news_check:checked ~ .latest-news_p .lastes-news_btn::after {
+  transform: scale(1, 1);
+}
 .delighter.fadeIn {
-  transition: .3s ease-out;
+  transition: 0.3s ease-out;
   opacity: 0;
 }
 .delighter.fadeIn.started {
   opacity: 1;
 }
 footer {
-  background: #E2007E;
+  background: #e2007e;
   color: white;
 }
 .copyright {
   margin: 0;
   padding: 1rem;
   text-align: center;
+}
+
+/* tickets */
+.default_list-style {
+  display: inline-block;
+  padding-left: 0;
+  list-style: none;
+  text-align: left;
+  max-width: 600px;
+}
+.min-container {
+  display: inline-block;
+  max-width: 600px;
+}
+.tickets-howto {
+  display: inline-block;
+  list-style: none;
+  text-align: left;
+  max-width: 600px;
+}
+.tickets-howto li {
+  counter-increment: howto;
+  position: relative;
+  margin-bottom: 2rem;
+}
+.tickets-howto li::before {
+  position: absolute;
+  display: inline-block;
+  content: counter(howto);
+  top: -1rem;
+  left: -60px;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: #e2007e;
+  font-size: 2rem;
+  line-height: 1.5;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+.sakazukin li::before {
+  display: inline-block;
+  content: "";
+  margin-right: 5px;
+  width: 2rem;
+  height: 2rem;
+  background: url(../img/sakazukin.png) center bottom/contain no-repeat;
+}
+.tickets_store-list {
+  list-style: none;
+  text-align: left;
+}
+.tickets_store-list li {
+  margin-bottom: 2rem;
+}
+.tickets_store-list h4 {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+.tickets_store-list p {
+  margin-bottom: 0.25rem;
+}
+.tickets_store-list .address {
+  display: flex;
+}
+.tickets_store-list .address::before {
+  display: inline-block;
+  content: "\f3c5";
+  font-family: "Font Awesome 5 Free";
+  margin-right: 0.25rem;
+  color: #e2007e;
+  font-weight: bold;
+}
+.tickets_store-list .tel::before {
+  display: inline-block;
+  content: "\f095";
+  font-family: "Font Awesome 5 Free";
+  margin-right: 0.25rem;
+  transform: scaleX(-1);
+  color: #e2007e;
+  font-weight: bold;
+}
+.store-pref {
+  display: inline-block;
+  max-width: 600px;
+}
+.store-pref a {
+  display: inline-block;
+  margin-right: 1rem;
+}
+.premium-seat_price-list {
+  list-style: none;
+}
+
+/* store info */
+.order-box h3 {
+  width: calc( 100% - 5rem );
+  margin: 0;
+  padding: .5rem 1rem;
+}
+.order-box h4 {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: bold;
+}
+.order-box .cuisine,.order-box .nihonshu {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  border-radius: 0 2.5rem 2.5rem 0;
+  background: #fff0f8;
+}
+.order-box .cuisine::before,.order-box .nihonshu::before {
+  position: absolute;
+  display: inline-block;
+  top: -1.25rem;
+  left: -.75rem;
+  color: #e2007e;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.order-box .cuisine::before {
+  content: '料理';
+}
+.order-box .nihonshu::before {
+  content: 'お酒';
+}
+.price-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  height: 5rem;
+  background: #ffd6ed;
+  border: 5px solid #ffacdb;
+  border-radius: 50%;
+  text-align: center;
+}
+.nihonshu-temp {
+  display: inline-block;
+  padding: 3px;
+  margin-left: 5px;
+  line-height: 1;
+  border: 1px solid #333;
+  border-radius: 3px;
+  font-size: 80%;
+}
+h4.set-price {
+  position: relative;
+  display: inline-block;
+  padding: 1rem;
+}
+h4.set-price::before,h4.set-price::after {
+  position: absolute;
+  display: block;
+  content: '';
+  width: 100%;
+  height: 100%;
+  border: 1px solid #333;
+}
+h4.set-price::before {
+  top: -2px;
+  left: -2px;
+}
+h4.set-price::after {
+  right: -2px;
+  bottom: -2px;
+}
+.jumbotron.store-list {
+  display: flex;
+  align-items: center;
+  background: 50% / cover no-repeat;
+  height: 200px;
+}
+.jumbotron.store-list h1 {
+  text-shadow: 0 0 3px #333;
+}
+@media (min-width: 639px) {
+  .jumbotron.store-list {
+    height: 300px;
+    background-attachment: fixed;
+  }
+}
+@media (min-width: 1023px) {
+  .jumbotron.store-list {
+    height: 400px;
+  }
+}
+.store-list_photos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.store-info {
+  display: flex;
+  flex-wrap: wrap;
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
+  border-top: 2px solid #e2007e;
+}
+.store-info dt,
+.store-info dd {
+  padding: 1rem;
+  margin-bottom: 0;
+  border-bottom: 1px solid #999;
+}
+.store-info dt {
+  width: 25%;
+  background: rgb(255, 200, 230);
+}
+.store-info dd {
+  width: 75%;
+}
+@media (max-width: 480px) {
+  .store-info {
+    margin-left: -15px;
+    width: 100vw;
+    border-left: 0;
+    border-right: 0;
+  }
+}
+.page_store-list .row > div {
+  margin-bottom: 1.5rem;
+}
+.page_store-list .card {
+  height: 100%;
+  transition: box-shadow 0.25s ease-out;
+}
+.page_store-list .card:hover {
+  box-shadow: 0 2px 5px #ddd;
+}
+.page_store-list .card-img-box {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+}
+.page_store-list .card-img-box::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%;
+}
+.page_store-list .card-img-top {
+  position: absolute;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+}
+.page_store-list .card-body {
+  padding: 1.25rem 0.75rem;
+}
+.page_store-list h4.card-title {
+  margin: 0 0 1rem;
+}
+/* concierge */
+.concierge-list {
+  height: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #eee;
+  box-shadow: 0 3px 5px #eee;
+}
+.concierge-list-header {
+  display: flex;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px dotted #333;
+}
+.concierge-list-header-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 1rem;
+}
+.concierge-list-header-title h4 {
+  width: 100%;
+}
+.concierge-list-header-title p {
+  width: 100%;
+  margin-bottom: 0;
+}
+/* gnav */
+.index nav.gnav {
+  display: none;
+}
+nav.gnav {
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  box-shadow: 0 0 2px #999;
+  z-index: 2;
+}
+.humberger-btn {
+  position: fixed;
+  display: none;
+  top: 2px;
+  left: 0.5rem;
+  height: 46px;
+  width: 46px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  z-index: 10001;
+}
+.humberger-btn span {
+  position: absolute;
+  display: inline-block;
+  width: 80%;
+  left: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 2px;
+  border-radius: 1px;
+  background: #333;
+  transition: height 0.3s;
+}
+.humberger-btn span::before,
+.humberger-btn span::after {
+  position: absolute;
+  content: "";
+  display: inline-block;
+  width: 100%;
+  left: 0;
+  top: 0;
+  height: 2px;
+  border-radius: 1px;
+  background: #333;
+  transition: transform 0.3s;
+}
+.humberger-btn span::before {
+  transform: translateY(-12px);
+}
+.humberger-btn span::after {
+  transform: translateY(12px);
+}
+.humberger-btn.on-close {
+  z-index: 100001;
+}
+.humberger-btn.on-close span {
+  height: 0;
+}
+.humberger-btn.on-close span::before {
+  transform: rotate(45deg);
+}
+.humberger-btn.on-close span::after {
+  transform: rotate(-45deg);
+}
+
+nav.gnav .container {
+  display: flex;
+  justify-content: space-between;
+}
+.gnav .header_main-logo {
+  height: 50px;
+  width: auto;
+}
+.gnav .gnav-list,
+.gnav .gnav-social {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+}
+.gnav .gnav-list {
+  margin-left: auto;
+}
+.gnav .gnav-list li {
+  position: relative;
+}
+.gnav .gnav-list li a,
+.gnav .gnav-social li a {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  color: #e2007e;
+  height: 50px;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+.gnav .gnav-social li a {
+  padding: 0 0.5rem;
+}
+.gnav .gnav-list li a:hover,
+.gnav .gnav-social li a:hover {
+  text-decoration: none;
+}
+.gnav .gnav-list > li > a::after {
+  position: absolute;
+  content: "";
+  display: inline-block;
+  height: 2px;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background: #e2007e;
+  transform: scale(0, 1);
+  transform-origin: right center;
+  transition: transform 0.3s ease-out;
+}
+.gnav .gnav-list > li > a:hover::after {
+  transform: scale(1, 1);
+  transform-origin: left center;
+}
+.gnav .gnav-list .sub-menu {
+  display: none;
+  position: absolute;
+  list-style: none;
+  padding-left: 0;
+  background: #e2007e;
+}
+.gnav .gnav-list > li:hover ul.sub-menu {
+  display: block;
+}
+.gnav .gnav-list .sub-menu a {
+  position: relative;
+  padding: 0.5rem 1rem;
+  height: auto;
+  color: white;
+  white-space: nowrap;
+}
+.gnav .gnav-list .sub-menu a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+#drower-box {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  z-index: 9999;
+}
+#drower-box.on {
+  display: block;
+  animation: drower-on 0.25s;
+  animation-fill-mode: forwards;
+}
+@keyframes drower-on {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+#drower-inner {
+  position: absolute;
+  width: 250px;
+  height: 100vh;
+  right: -250px;
+  top: 0;
+  background: #e2007e;
+  z-index: 10000;
+}
+#drower-box.on #drower-inner {
+  animation: inner-on 0.25s;
+  animation-fill-mode: forwards;
+}
+@keyframes inner-on {
+  from {
+    right: -280px;
+  }
+  to {
+    right: 0;
+  }
+}
+#drower-menu {
+  list-style: none;
+  padding-left: 0;
+}
+#drower-menu a {
+  display: block;
+  padding: 1rem;
+  color: white;
+}
+#drower-menu a:hover {
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.2);
+}
+#drower-menu .sub-menu {
+  list-style: none;
+  padding-left: 0;
+}
+@media (max-width: 780px) {
+  .humberger-btn {
+    display: block;
+  }
+  .gnav .gnav-list {
+    display: none;
+  }
+  .gnav .gnav-social {
+    position: absolute;
+    top: 0;
+    right: 5px;
+  }
+  .gnav .gnav-social li a {
+    padding: 0 0.5rem;
+  }
+  nav.gnav .container {
+    display: block;
+    position: relative;
+    text-align: center;
+  }
 }
