@@ -56,6 +56,10 @@ jQuery(function ($) {
     $("#drower-box").toggleClass("on");
   });
 
+  $('.gnav-social li:nth-child(4)').on('click', function (e) {
+    e.preventDefault();
+    $(this).parent().toggleClass('open');
+  });
   $('a[href^="#"]').on("click", function (e) {
     e.preventDefault();
     const speed = 500;

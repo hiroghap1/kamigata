@@ -22,8 +22,13 @@ body:not(.index) {
 }
 img,
 iframe,
-input {
+input,
+textarea {
   max-width: 100%;
+}
+input,
+textarea {
+  width: 100%;
 }
 .inline-block {
   display: inline-block;
@@ -916,6 +921,32 @@ nav.gnav .container {
 .gnav .gnav-list .sub-menu a:hover {
   background: rgba(255, 255, 255, 0.2);
 }
+.gnav-social li:nth-child(4){
+  display: none;
+}
+@media (max-width: 480px){
+  .gnav-social li:not(:nth-child(4)) {
+    height: 0;
+    font-size: 0;
+    opacity: 0;
+    transition: .3s;
+  }
+  .gnav-social li:nth-child(4){
+  display: block;
+}
+  .gnav-social {
+    flex-direction: column-reverse;
+  }
+  .gnav-social.open li:first-child {
+    border-radius: 0 0 5px 5px;
+  }
+  .gnav-social.open li:not(:nth-child(4)) {
+    height: auto;
+    background: rgba(255,255,255,.6);
+    font-size: 1rem;
+    opacity: 1;
+  }
+}
 #drower-box {
   position: fixed;
   display: none;
@@ -947,6 +978,7 @@ nav.gnav .container {
   right: -250px;
   top: 0;
   background: #e2007e;
+  overflow-y: auto;
   z-index: 10000;
 }
 #drower-box.on #drower-inner {
@@ -978,7 +1010,7 @@ nav.gnav .container {
   list-style: none;
   padding-left: 0;
 }
-@media (max-width: 780px) {
+@media (max-width: 1200px) {
   .humberger-btn {
     display: block;
   }
