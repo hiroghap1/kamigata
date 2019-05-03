@@ -17,17 +17,47 @@
   <link rel="alternate" href="https://kamigata-nihonshu.com/" hreflang="ja">
   <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/favicon.ico" />
   <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico" />
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/slick.min.js"></script>
-  <link rel="stylesheet" href="css/slick.css" />
-  <link rel="stylesheet" href="css/slick-theme.css" />
-  <link rel="stylesheet" href="css/bootstrap.min.css" />
-  <link rel="stylesheet" href="css/all.min.css" />
-  <link rel="stylesheet" href="css/jquery.fancybox.min.css" />
-  <link rel="stylesheet" href="css/style.css?d=1033" />
-  <script src="js/main.js?d=1033"></script>
-  <script src="js/delighters.min.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet" />
+  <style>
+    html.fixed,
+    body.fixed {
+      overflow: hidden;
+      position: fixed;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    .overray {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      opacity: 0.9;
+      transition: 0.5s ease-out;
+    }
+
+    .overray.fade {
+      position: absolute;
+      opacity: 0.2;
+    }
+  </style>
+  <link rel="preload" href="css/slick.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <link rel="preload" href="css/slick-theme.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <link rel="preload" href="css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <link rel="preload" href="css/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <link rel="preload" as="font" href="css/fonts/sawarabi-gothic-v7-latin-regular.woff2" crossorigin>
+  <link rel="preload" as="font" href="webfonts/fa-brands-400.woff2" crossorigin>
+  <link rel="preload" as="font" href="webfonts/fa-regular-400.woff2" crossorigin>
+  <link rel="preload" as="font" href="webfonts/fa-solid-900.woff2" crossorigin>
+  <link rel="preload" href="css/style.css?d=1033" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <script>
+    !function (t) { "use strict"; t.loadCSS || (t.loadCSS = function () { }); var e = loadCSS.relpreload = {}; if (e.support = function () { var e; try { e = t.document.createElement("link").relList.supports("preload") } catch (a) { e = !1 } return function () { return e } }(), e.bindMediaToggle = function (t) { function e() { t.addEventListener ? t.removeEventListener("load", e) : t.attachEvent && t.detachEvent("onload", e), t.setAttribute("onload", null), t.media = a } var a = t.media || "all"; t.addEventListener ? t.addEventListener("load", e) : t.attachEvent && t.attachEvent("onload", e), setTimeout(function () { t.rel = "stylesheet", t.media = "only x" }), setTimeout(e, 3e3) }, e.poly = function () { if (!e.support()) for (var a = t.document.getElementsByTagName("link"), n = 0; n < a.length; n++) { var o = a[n]; "preload" !== o.rel || "style" !== o.getAttribute("as") || o.getAttribute("data-loadcss") || (o.setAttribute("data-loadcss", !0), e.bindMediaToggle(o)) } }, !e.support()) { e.poly(); var a = t.setInterval(e.poly, 500); t.addEventListener ? t.addEventListener("load", function () { e.poly(), t.clearInterval(a) }) : t.attachEvent && t.attachEvent("onload", function () { e.poly(), t.clearInterval(a) }) } "undefined" != typeof exports ? exports.loadCSS = loadCSS : t.loadCSS = loadCSS }("undefined" != typeof global ? global : this);</script>
+  <script src="js/lazysizes.min.js" async></script>
+  <script src="js/delighters.min.js" async></script>
   <!-- Google Tag Manager -->
   <script>
     (function (w, d, s, l, i) {
@@ -138,11 +168,11 @@
       </div>
     </nav>
     <div class="keyvisual">
-      <div><img class="slide-item" src="img/image1.jpg" alt="" /></div>
-      <div><img class="slide-item" src="img/image4.jpg" alt="" /></div>
-      <div><img class="slide-item" src="img/image3.jpg" alt="" /></div>
-      <div><img class="slide-item" src="img/image2.jpg" alt="" /></div>
-      <div><img class="slide-item" src="img/image6.jpg" alt="" /></div>
+      <div><img class="slide-item" srcset="img/image1-smp.jpg 480w,img/image1.jpg" src="img/image1.jpg" alt="" /></div>
+      <div><img class="slide-item" srcset="img/image4-smp.jpg 480w,img/image4.jpg" src="img/image4.jpg" alt="" /></div>
+      <div><img class="slide-item" srcset="img/image3-smp.jpg 480w,img/image3.jpg" src="img/image3.jpg" alt="" /></div>
+      <div><img class="slide-item" srcset="img/image2-smp.jpg 480w,img/image2.jpg" src="img/image2.jpg" alt="" /></div>
+      <div><img class="slide-item" srcset="img/image6-smp.jpg 480w,img/image6.jpg" src="img/image6.jpg" alt="" /></div>
     </div>
     <div class="overray"></div>
     <div class="header-logo">
@@ -157,10 +187,10 @@
         <p>世界にはばたけ！<br class="d-block d-sm-none" />浪速から始まる日本酒新時代！</p>
         <div class="">
           <figure class="col-12 col-md-8 offset-md-2">
-            <img src="img/date.png" alt="2019年5月4日（土）・5日（日）10:00~16:00" height="auto" />
+            <img data-src="img/date.png" alt="2019年5月4日（土）・5日（日）10:00~16:00" height="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload" />
           </figure>
           <figure class="col-12 col-md-8 offset-md-2">
-            <img src="img/rever-place.png" alt="湊町リバープレイス" height="auto" />
+            <img data-src="img/rever-place.png" alt="湊町リバープレイス" height="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload" />
           </figure>
         </div>
         <p style="font-size: 2rem;">
@@ -176,7 +206,7 @@
         </dl>
         <p>※表記は全て税込み</p>
         <figure>
-          <img id="countdown" src="img/countdown/cd0407.jpg" alt="" width="500" />
+          <img id="countdown" src="" alt="" width="500" />
         </figure>
       </section>
       <section class="section text-center index_sakazukin-bg bg2">
@@ -228,7 +258,7 @@
         <h2 data-delighter>参加店舗＆蔵元</h2>
         <div class="row text-center">
           <div class="col-12 col-md-6 mb-5">
-            <figure><a href="img/map0504.gif" data-fancybox="gallery"><img src="img/map0504-thumb.gif" alt="" class="img-thumbnail"></a></figure>
+            <figure><a href="img/map0504.gif" data-fancybox="gallery"><img data-src="img/map0504-thumb.gif" alt="" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="img-thumbnail lazyload" width="320" height="auto"></a></figure>
             <h3 class="mb-4">【5月4日】</h3>
             <ul class="store-list">
               <li> ＜北海道＞<br />
@@ -264,7 +294,7 @@
             </ul>
           </div>
           <div class="col-12 col-md-6">
-            <figure><a href="img/map0505.gif" data-fancybox="gallery"><img src="img/map0505-thumb.gif" alt="" class="img-thumbnail"></a></figure>
+            <figure><a href="img/map0505.gif" data-fancybox="gallery"><img data-src="img/map0505-thumb.gif" alt="" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="img-thumbnail lazyload" width="320" height="auto"></a></figure>
             <h3 class="mb-4">【5月5日】</h3>
             <ul class="store-list">
               <li> ＜北海道＞<br />
@@ -338,7 +368,7 @@
           </div>
         </div>
         <div class="fadeIn" data-delighter>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.45627534702!2d135.4930925509705!3d34.66843209235719!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e70e0aceba5f%3A0xd005c6e455124fbf!2z5rmK55S644Oq44OQ44O844OX44Os44Kk44K5!5e0!3m2!1sja!2sjp!4v1545728830930" width="1280" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+          <iframe data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.45627534702!2d135.4930925509705!3d34.66843209235719!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e70e0aceba5f%3A0xd005c6e455124fbf!2z5rmK55S644Oq44OQ44O844OX44Os44Kk44K5!5e0!3m2!1sja!2sjp!4v1545728830930" width="1280" height="400" frameborder="0" style="border:0" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload" allowfullscreen></iframe>
         </div>
       </section>
     </div>
@@ -348,6 +378,9 @@
         <small>&copy; 2010 上方日本酒ワールド　&copy; sakazukin</small>
       </p>
   </footer>
-  <script src="js/jquery.fancybox.min.js"></script>
+  <script src="js/jquery-3.3.1.min.js" defer></script>
+  <script src="js/slick.min.js" defer></script>
+  <script src="js/main.js?d=1033" defer></script>
+  <script src="js/jquery.fancybox.min.js" defer></script>
 </body>
 </html>
