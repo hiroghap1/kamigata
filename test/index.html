@@ -46,13 +46,11 @@
   </style>
   <link rel="preload" href="css/slick.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <link rel="preload" href="css/slick-theme.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-  <link rel="preload" href="css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <link rel="preload" href="css/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <link rel="preload" as="font" href="css/fonts/sawarabi-gothic-v7-latin-regular.woff2" crossorigin>
-  <link rel="preload" as="font" href="webfonts/fa-brands-400.woff2" crossorigin>
-  <link rel="preload" as="font" href="webfonts/fa-regular-400.woff2" crossorigin>
-  <link rel="preload" as="font" href="webfonts/fa-solid-900.woff2" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
   <link rel="preload" href="css/style.css?d=1033" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <script>
     !function (t) { "use strict"; t.loadCSS || (t.loadCSS = function () { }); var e = loadCSS.relpreload = {}; if (e.support = function () { var e; try { e = t.document.createElement("link").relList.supports("preload") } catch (a) { e = !1 } return function () { return e } }(), e.bindMediaToggle = function (t) { function e() { t.addEventListener ? t.removeEventListener("load", e) : t.attachEvent && t.detachEvent("onload", e), t.setAttribute("onload", null), t.media = a } var a = t.media || "all"; t.addEventListener ? t.addEventListener("load", e) : t.attachEvent && t.attachEvent("onload", e), setTimeout(function () { t.rel = "stylesheet", t.media = "only x" }), setTimeout(e, 3e3) }, e.poly = function () { if (!e.support()) for (var a = t.document.getElementsByTagName("link"), n = 0; n < a.length; n++) { var o = a[n]; "preload" !== o.rel || "style" !== o.getAttribute("as") || o.getAttribute("data-loadcss") || (o.setAttribute("data-loadcss", !0), e.bindMediaToggle(o)) } }, !e.support()) { e.poly(); var a = t.setInterval(e.poly, 500); t.addEventListener ? t.addEventListener("load", function () { e.poly(), t.clearInterval(a) }) : t.attachEvent && t.attachEvent("onload", function () { e.poly(), t.clearInterval(a) }) } "undefined" != typeof exports ? exports.loadCSS = loadCSS : t.loadCSS = loadCSS }("undefined" != typeof global ? global : this);</script>
@@ -378,7 +376,7 @@
         <small>&copy; 2010 上方日本酒ワールド　&copy; sakazukin</small>
       </p>
   </footer>
-  <script src="js/jquery-3.3.1.min.js" defer></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="js/slick.min.js" defer></script>
   <script src="js/main.js?d=1033" defer></script>
   <script src="js/jquery.fancybox.min.js" defer></script>
